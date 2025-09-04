@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze Runner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Maze Runner</h1>
+    <div class="controls">
+      <label>Difficulty
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <label>Seed <input id="seed" type="text" placeholder="random"></label>
+      <button id="newMaze">New Maze</button>
+      <button id="nextLevel">Next Level</button>
+      <button id="hint">Hint</button>
+      <button id="pause">Pause</button>
+      <button id="resetBests">Reset Bests</button>
+      <button id="settingsBtn">Settings</button>
+    </div>
+  </header>
+
+  <canvas id="game" tabindex="0"></canvas>
+  <div id="hud" class="hud">
+    <span id="levelDisplay"></span>
+    <span id="difficultyDisplay"></span>
+    <span id="seedDisplay"></span>
+    <span id="timerDisplay"></span>
+    <span id="stepsDisplay"></span>
+    <span id="bestDisplay"></span>
+  </div>
+
+  <div id="dpad" class="dpad">
+    <button data-dir="up" aria-label="up">▲</button>
+    <div class="middle">
+      <button data-dir="left" aria-label="left">◄</button>
+      <button data-dir="right" aria-label="right">►</button>
+    </div>
+    <button data-dir="down" aria-label="down">▼</button>
+  </div>
+
+  <div id="settingsPanel" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Settings</h2>
+      <label>Difficulty
+        <select id="setDifficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <label>Seed <input id="setSeed" type="text" placeholder="random"></label>
+      <label><input type="checkbox" id="fogToggle"> Fog of war</label>
+      <button id="closeSettings">Close</button>
+    </div>
+  </div>
+
+  <div id="winModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Level complete!</h2>
+      <p id="winStats"></p>
+      <button id="winNext">Next Level</button>
+      <button id="winNew">New Maze</button>
+      <button id="winClose">Close</button>
+    </div>
+  </div>
+
+  <p class="instructions">Use arrow keys or WASD to navigate the maze from START (green) to EXIT (gold). R to restart, P to pause, M to mute. On small screens use the on-screen D-pad.</p>
+
+  <script src="game.js"></script>
+</body>
+</html>
