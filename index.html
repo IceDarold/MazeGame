@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Procedural Maze Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header id="topbar">
+    <h1>Maze Game</h1>
+    <label>Difficulty
+      <select id="difficulty">
+        <option>Easy</option>
+        <option>Medium</option>
+        <option>Hard</option>
+      </select>
+    </label>
+    <label>Seed <input id="seed" type="text" placeholder="Seed" /></label>
+    <button id="newMaze">New Maze</button>
+    <button id="nextLevel">Next Level</button>
+    <button id="hintBtn">Hint</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBests">Reset Bests</button>
+    <button id="settingsBtn">Settings</button>
+  </header>
+
+  <div id="hud"></div>
+
+  <canvas id="gameCanvas" tabindex="0" aria-label="Maze canvas"></canvas>
+
+  <div id="dpad" class="hidden">
+    <button data-dir="up">▲</button>
+    <div>
+      <button data-dir="left">◀</button>
+      <button data-dir="down">▼</button>
+      <button data-dir="right">▶</button>
+    </div>
+  </div>
+
+  <div id="winModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Level complete!</h2>
+      <p id="winStats"></p>
+      <button id="modalNext">Next Level</button>
+      <button id="modalNew">New Maze</button>
+      <button id="modalClose">Close</button>
+    </div>
+  </div>
+
+  <div id="settingsPanel" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Settings</h2>
+      <label>Difficulty
+        <select id="setDifficulty">
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Hard</option>
+        </select>
+      </label>
+      <label>Seed <input id="setSeed" type="text" /></label>
+      <label><input type="checkbox" id="fogToggle" /> Fog of war</label>
+      <div class="modal-buttons">
+        <button id="settingsSave">Save</button>
+        <button id="settingsCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="instructions">
+    <p>Use arrow keys or WASD to move from the green START to the gold EXIT. R to restart, P to pause, M to toggle sound. Find the exit as fast as you can!</p>
+  </section>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
