@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maze Runner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header id="topbar">
+  <h1>Maze Runner</h1>
+  <div class="controls">
+    <label>Difficulty
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </label>
+    <label>Seed <input id="seed" type="text" size="8" placeholder="random"></label>
+    <button id="newMaze">New Maze</button>
+    <button id="nextLevel">Next Level</button>
+    <button id="hintBtn">Hint</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBests">Reset Bests</button>
+    <button id="settingsBtn">Settings</button>
+  </div>
+</header>
+
+<section id="settingsPanel" class="hidden">
+  <label>Difficulty
+    <select id="difficultySetting">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </label>
+  <label>Seed <input id="seedSetting" type="text" size="8"></label>
+  <label><input type="checkbox" id="fogToggle"> Fog of war</label>
+</section>
+
+<div id="hud">
+  <span id="levelInfo"></span>
+  <span id="timer"></span>
+  <span id="steps"></span>
+  <span id="best"></span>
+</div>
+
+<canvas id="game" tabindex="0"></canvas>
+
+<div id="dpad" class="hidden">
+  <button data-dir="up">▲</button>
+  <div class="middle">
+    <button data-dir="left">◀</button>
+    <button data-dir="right">▶</button>
+  </div>
+  <button data-dir="down">▼</button>
+</div>
+
+<div id="modal" class="hidden">
+  <div class="content">
+    <h2>Level complete!</h2>
+    <p id="summary"></p>
+    <button id="modalNext">Next Level</button>
+    <button id="modalNew">New Maze</button>
+    <button id="modalClose">Close</button>
+  </div>
+</div>
+
+<p id="instructions">Use arrow keys or WASD to move. Reach the gold exit. R: restart, P: pause, M: mute.</p>
+
+<script src="game.js"></script>
+</body>
+</html>
