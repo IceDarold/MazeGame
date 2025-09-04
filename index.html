@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procedural Maze</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="top-bar">
+    <h1>Maze Runner</h1>
+    <div class="controls">
+      <label>Difficulty
+        <select id="difficulty">
+          <option value="Easy">Easy</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </label>
+      <label>Seed <input id="seed" type="text" maxlength="20"></label>
+      <button id="newMaze">New Maze</button>
+      <button id="nextLevel">Next Level</button>
+      <button id="hint">Hint</button>
+      <button id="pause">Pause</button>
+      <button id="resetBests">Reset Bests</button>
+      <button id="settingsBtn">Settings</button>
+    </div>
+  </header>
+  <canvas id="gameCanvas" tabindex="0"></canvas>
+  <div id="hud"></div>
+  <div id="settingsPanel" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <label><input id="fog" type="checkbox"> Fog-of-war</label>
+      <button id="closeSettings">Close</button>
+    </div>
+  </div>
+  <div id="dpad" class="hidden">
+    <button data-dir="up">▲</button>
+    <div class="middle">
+      <button data-dir="left">◀</button>
+      <button data-dir="down">▼</button>
+      <button data-dir="right">▶</button>
+    </div>
+  </div>
+  <div id="winModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Level complete!</h2>
+      <p id="winStats"></p>
+      <button id="nextModal">Next Level</button>
+      <button id="newModal">New Maze</button>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+  <section id="instructions">
+    <p>Use arrow keys or WASD to move. Reach the gold exit. R to restart, P to pause, M to toggle sound. Toggle fog-of-war for more challenge.</p>
+  </section>
+  <script src="game.js"></script>
+</body>
+</html>
